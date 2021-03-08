@@ -1,0 +1,18 @@
+div Bản rõ 
+if values 
+  div #{values.q}
+  div #{values.plaintext}
+if errors
+  each err in errors
+    div= err
+form(action="/features/encrypt", method="POST")
+  select#q(name="q")
+    option(value='shift') shift-cipher
+
+  input#plaintext.inputtext(type='text' name="plaintext" placeholder='...' value=values? values.plaintext : "")
+  //- div Bản mã
+  //- input#code.inputtext(type='text' name="code" placeholder='...')
+  button Mã hóa
+
+if code 
+  div #{code}
